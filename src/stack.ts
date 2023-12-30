@@ -4,4 +4,8 @@ export class Stack {
     get isEmpty(): boolean {
         return this._isEmpty;
     }
+
+    push() {
+        this._isEmpty = false;
+    }
 }
