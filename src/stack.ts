@@ -5,7 +5,7 @@ export class Stack {
         return this._isEmpty;
     }
 
-    push() {
+    public push(): void {
         this._isEmpty = false;
     }
 }
