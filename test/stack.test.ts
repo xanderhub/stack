@@ -16,4 +16,8 @@ describe("stack tests", () => {
         stack.push();
         expect(stack.isEmpty).toBeFalsy()
     });
+
+    it("should throw error when pop from empty stack", () => {
+        expect(stack.pop).toThrow("Can not pop from empty stack");
+    })
 })
