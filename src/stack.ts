@@ -8,8 +8,4 @@ export class Stack {
     public push(): void {
         this._isEmpty = false;
     }
-
-    pop() {
-        throw new Error("Can not pop from empty stack");
-    }
 }
