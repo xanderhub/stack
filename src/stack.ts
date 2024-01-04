@@ -12,6 +12,9 @@ export class Stack {
     }
 
     public pop(): void {
-        throw new StackError(StackError.popFromEmptyStackErrorMessage);
+        if (this.isEmpty)
+            throw new StackError(StackError.popFromEmptyStackErrorMessage);
+
+        this._isEmpty = true;
     }
 }
