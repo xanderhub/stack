@@ -2,19 +2,24 @@ import {StackError} from "./stack-error";
 
 export class Stack {
 
-    private _isEmpty: boolean = true;
-    get isEmpty(): boolean {
-        return this._isEmpty;
+    private _size: number;
+
+    constructor() {
+        this._size = 0;
+    }
+
+    public isEmpty(): boolean {
+        return this._size == 0;
     }
 
     public push(): void {
-        this._isEmpty = false;
+        this._size ++;
     }
 
     public pop(): void {
-        if (this.isEmpty)
+        if (this.isEmpty())
             throw new StackError(StackError.popFromEmptyStackErrorMessage);
 
-        this._isEmpty = true;
+        this._size --;
     }
 }

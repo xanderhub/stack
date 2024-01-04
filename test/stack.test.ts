@@ -10,12 +10,12 @@ describe("stack tests", () => {
     });
 
     it("should be empty after creation", () => {
-        expect(stack.isEmpty).toBeTruthy();
+        expect(stack.isEmpty()).toBeTruthy();
     });
 
     it("should not be empty after push", () => {
         stack.push();
-        expect(stack.isEmpty).toBeFalsy()
+        expect(stack.isEmpty()).toBeFalsy()
     });
 
     it("should throw error when pop from empty stack", () => {
@@ -26,6 +26,14 @@ describe("stack tests", () => {
         stack.push();
         stack.pop();
 
-        expect(stack.isEmpty).toBeTruthy();
+        expect(stack.isEmpty()).toBeTruthy();
+    });
+
+    it("should not be empty after two pushes and one pop", () => {
+        stack.push();
+        stack.push();
+        stack.pop();
+
+        expect(stack.isEmpty()).toBeFalsy();
     });
 });
