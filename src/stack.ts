@@ -1,3 +1,5 @@
+import {StackError} from "./stack-error";
+
 export class Stack {
 
     private _isEmpty: boolean = true;
@@ -9,7 +11,7 @@ export class Stack {
         this._isEmpty = false;
     }
 
-    pop() {
-        throw new Error("Cannot pop from empty stack");
+    public pop(): void {
+        throw new StackError(StackError.popFromEmptyStackErrorMessage);
     }
 }

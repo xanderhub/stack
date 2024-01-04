@@ -1,4 +1,5 @@
 import {Stack} from "../src/stack";
+import {StackError} from "../src/stack-error";
 
 describe("stack tests", () => {
 
@@ -18,6 +19,6 @@ describe("stack tests", () => {
     });
 
     it("should throw error when pop from empty stack", () => {
-        expect(() => stack.pop()).toThrow("Cannot pop from empty stack");
-    })
-})
+        expect(() => stack.pop()).toThrow(StackError.popFromEmptyStackErrorMessage);
+    });
+});
