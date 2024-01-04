@@ -3,6 +3,7 @@ import {StackError} from "./stack-error";
 export class Stack {
 
     private _size: number;
+    private _value?: number;
 
     constructor() {
         this._size = 0;
@@ -12,14 +13,16 @@ export class Stack {
         return this._size == 0;
     }
 
-    public push(): void {
+    public push(value: number): void {
+        this._value = value;
         this._size ++;
     }
 
-    public pop(): void {
-        if (this.isEmpty())
+    public pop(): number {
+        if (this.isEmpty() || !this._value)
             throw new StackError(StackError.popFromEmptyStackErrorMessage);
 
         this._size --;
+        return this._value;
     }
 }

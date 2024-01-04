@@ -14,7 +14,7 @@ describe("stack tests", () => {
     });
 
     it("should not be empty after push", () => {
-        stack.push();
+        stack.push(42);
         expect(stack.isEmpty()).toBeFalsy()
     });
 
@@ -23,17 +23,22 @@ describe("stack tests", () => {
     });
 
     it("should be empty after one push and one pop", () => {
-        stack.push();
+        stack.push(42);
         stack.pop();
 
         expect(stack.isEmpty()).toBeTruthy();
     });
 
     it("should not be empty after two pushes and one pop", () => {
-        stack.push();
-        stack.push();
+        stack.push(42);
+        stack.push(42);
         stack.pop();
 
         expect(stack.isEmpty()).toBeFalsy();
     });
+
+    it("should pop 42 after pushing 42", () => {
+        stack.push(42);
+        expect(stack.pop()).toBe(42);
+    })
 });
