@@ -41,4 +41,12 @@ describe("stack tests", () => {
         stack.push(42);
         expect(stack.pop()).toBe(42);
     });
+
+    it("should pop 24 and 42 after pushing 42 and 24", () => {
+        stack.push(42);
+        stack.push(24);
+
+        expect(stack.pop()).toBe(24);
+        expect(stack.pop()).toBe(42);
+    })
 });

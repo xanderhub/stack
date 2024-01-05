@@ -1,9 +1,10 @@
 import {StackError} from "./stack-error";
+import {Item} from "./item";
 
 export class Stack {
 
     private _size: number;
-    private _value?: number;
+    private _top?: Item;
 
     constructor() {
         this._size = 0;
@@ -14,7 +15,7 @@ export class Stack {
     }
 
     public push(value: number): void {
-        this._value = value;
+        this._top = {value: value, next: this._top};
         this._size ++;
     }
 
@@ -23,6 +24,8 @@ export class Stack {
             throw new StackError(StackError.popFromEmptyStackErrorMessage);
 
         this._size --;
-        return this._value as number;
+        let value: number = this._top?.value as number;
+        this._top = this._top?.next;
+        return value;
     }
 }
