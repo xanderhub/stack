@@ -19,10 +19,10 @@ export class Stack {
     }
 
     public pop(): number {
-        if (this.isEmpty() || !this._value)
+        if (this.isEmpty())
             throw new StackError(StackError.popFromEmptyStackErrorMessage);
 
         this._size --;
-        return this._value;
+        return this._value as number;
     }
 }
